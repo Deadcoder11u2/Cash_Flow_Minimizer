@@ -4,9 +4,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-class Minimize {
+public class Minimize {
     static int N = 3;
     static int counter = 0;
+
     static int getMin(int arr[]) {
         int minInd = 0;
         for (int i = 1; i < N; i++)
@@ -15,8 +16,6 @@ class Minimize {
         return minInd;
     }
 
-    // A utility function that returns
-    // index of maximum value in arr[]
     static int getMax(int arr[]) {
         int maxInd = 0;
         for (int i = 1; i < N; i++)
@@ -32,8 +31,7 @@ class Minimize {
     static void minCashFlowRec(int amount[], StringBuilder sb) {
         int mxCredit = getMax(amount), mxDebit = getMin(amount);
         if (amount[mxCredit] == 0 && amount[mxDebit] == 0)
-        return;
-        
+            return;
         int min = minOf2(-amount[mxDebit], amount[mxCredit]);
         amount[mxCredit] -= min;
         amount[mxDebit] += min;
@@ -54,7 +52,6 @@ class Minimize {
     }
 
     public static void main(String[] args) throws IOException {
-        // BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedReader br = new BufferedReader(new FileReader("input.txt"));
         PrintWriter out = new PrintWriter("output.txt");
         StringTokenizer st = new StringTokenizer("");
@@ -71,7 +68,6 @@ class Minimize {
             int weight = Integer.parseInt(st.nextToken());
             graph[u][v] = weight;
         }
-        
         StringBuilder sb = minCashFlow(graph, out);
         out.println(counter);
         out.print(sb);
