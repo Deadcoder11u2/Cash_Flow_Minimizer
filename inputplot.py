@@ -2,9 +2,6 @@ from matplotlib.patches import FancyArrow
 import matplotlib.pyplot as plt
 import networkx as nx
 from networkx.classes.function import edges
-import time
-
-time.sleep(1)
 
 f = open("input.txt", "r")
 nodes, edges = map(int, f.readline().split())
@@ -29,4 +26,3 @@ nx.draw_networkx_labels(G, pos)
 labels = nx.get_edge_attributes(G, 'weight')
 nx.draw_networkx_edge_labels(G, pos)
 plt.savefig("fig2.png")
-plt.show()

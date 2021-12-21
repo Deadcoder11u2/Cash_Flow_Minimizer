@@ -4,6 +4,9 @@ from typing import Sized
 from PIL import Image, ImageTk
 import os
 import time
+from matplotlib.pyplot import legend
+
+from networkx.algorithms.bipartite.basic import color
 
 # Main Program
 frame = tk.Tk()
@@ -14,11 +17,11 @@ path = "D:\program\DJANGO_FOR_EVERYONE\\fig1.png"
 
 def printInput():
     global img
-    inp = inputtxt.get(1.0, END)
-    f = open("input.txt", "w")
-    f.write(inp)
-    f.close()
-    time.sleep(1)
+    # inp = inputtxt.get(1.0, END)
+    # f = open("input.txt", "w")
+    # f.write(inp)
+    # f.close()
+    # time.sleep(1)
     os.system("python graph.py")
     time.sleep(1)
     img = ImageTk.PhotoImage(Image.open(path))
@@ -29,7 +32,6 @@ def printInput():
 def plotInput():
     global img
     inp = inputtxt.get(1.0, END)
-    print(inp)
     f = open("input.txt", "w")
     f.write(inp)
     f.close()
