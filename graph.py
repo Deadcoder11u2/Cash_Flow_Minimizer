@@ -4,7 +4,7 @@ import os
 import time
 
 os.system("java Minimize")
-time.sleep(1)
+time.sleep(0.5)
 output = open("output.txt", "r")
 nodes, edges = map(int, output.readline().split())
 l = []
@@ -20,8 +20,8 @@ nx.is_weighted(G)
 pos = nx.spring_layout(G)
 
 
-nx.draw_networkx_nodes(G, pos, node_size=500)
-nx.draw_networkx_edges(G, pos, edgelist=G.edges(), edge_color='black')
+nx.draw_networkx_nodes(G, pos, node_size=700)
+nx.draw_networkx_edges(G, pos, edgelist=G.edges(), edge_color='black', arrowsize=20)
 nx.draw_networkx_labels(G, pos)
 labels = nx.get_edge_attributes(G, 'weight')
 nx.draw_networkx_edge_labels(G, pos)

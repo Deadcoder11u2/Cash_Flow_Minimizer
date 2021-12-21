@@ -25,6 +25,21 @@ def printInput():
     panel = tk.Label(frame, image = img)
     panel.place(x = 625, y = 90)
 
+
+def plotInput():
+    global img
+    inp = inputtxt.get(1.0, END)
+    print(inp)
+    f = open("input.txt", "w")
+    f.write(inp)
+    f.close()
+    time.sleep(0.5)
+    os.system("python inputplot.py")
+    time.sleep(0.5)
+    img = ImageTk.PhotoImage(Image.open("D:\program\DJANGO_FOR_EVERYONE\\fig2.png"))
+    panel = tk.Label(frame, image = img)
+    panel.place(x = 625, y = 90)
+
 # Header Creation
 project_titile = ImageTk.PhotoImage(Image.open("header.png"))
 panel_header = tk.Label(frame, image=project_titile)
@@ -35,8 +50,10 @@ inputtxt = tk.Text(frame,height=23,width=65, font=('Times New Roman', 14))
 inputtxt.place(x = 10, y = 90)
 
 # Button Creation
-printButton = tk.Button(frame,text="Solve",command=printInput)
-printButton.place(x = 265, y = 580)
+InputButton = tk.Button(frame,text="Plot Input", command=plotInput)
+InputButton.place(x = 265, y = 580)
+printButton = tk.Button(frame,text="Plot Output",command=printInput)
+printButton.place(x = 262, y = 610)
 
 # Label Creation
 lbl = tk.Label(frame, text="")
